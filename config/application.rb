@@ -17,6 +17,18 @@ end
 
 module Eplus
   class Application < Rails::Application
+
+    # don't generate RSpec tests for views and helpers
+    config.generators do |g|
+      
+      g.test_framework :rspec, fixture: true
+      g.fixture_replacement :factory_girl, dir: 'spec/factories'
+      
+      
+      g.view_specs false
+      g.helper_specs false
+    end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -45,7 +57,7 @@ module Eplus
     config.encoding = "utf-8"
 
     # Configure sensitive parameters which will be filtered from the log file.
-    config.filter_parameters += [:password]
+    config.filter_parameters += [:password, :password_confirmation]
 
     # Enable escaping HTML in JSON.
     config.active_support.escape_html_entities_in_json = true
@@ -63,8 +75,21 @@ module Eplus
 
     # Enable the asset pipeline
     config.assets.enabled = true
-
+	
+	#Awesome Fonts stuff
+	config.assets.paths << Rails.root.join("app", "assets", "fonts")
+	
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    
+    
+    #devise views
+    config.to_prepare do
+  		Devise::SessionsController.layout "devise"
+		Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "devise" }
+  		Devise::ConfirmationsController.layout "devise"
+  		Devise::UnlocksController.layout "devise"            
+	    Devise::PasswordsController.layout "devise"        
+	end
   end
 end

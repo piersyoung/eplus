@@ -1,0 +1,100 @@
+<h2><%= @form.name %></h2>
+	<!--=============================================================-->
+		<section class="row-fluid">
+			
+			<!-- School latest
+				================================================== -->
+			<!-- Last activity
+				================================================== -->
+			<div class="span12">
+				<h3 class="box-header">
+					<i class="icon-time"></i>
+					<%= link_to 'Edit', edit_form_path(@form) %> 
+				</h3>
+				<div class="box">
+				<% if !(@form.nil?) %>
+<table class="table table-striped table-bordered table-condensed" id="sortable">
+<thead>
+<th>Name</th>
+<th><span class="label">Open</span></th>
+<th><span class="label label-warning">Interviews</span></th>
+<th><span class="label label-important">Rejection</span></th>
+<th><span class="label label-inverse">Wait List</span></th>
+<th><span class="label label-info">Offer</span></th>
+<th><span class="label label-success">Place</span></th>
+</thead>
+<tbody>
+<% @students.each do |s| %>
+<tr>
+<td><%= link_to s.name, :controller=>"students", :action=> "show", :id=> s.id %></td>
+<td>
+<!-- need to make this MUCH more efficient -->
+<% if s.applying? %>
+	<% s.submissions.each do |app| %>
+		<% if app.status.id == 1 %>
+			<%= link_to app.school.name, :controller =>"schools", :action => "show", :id => app.school.id %> <br/>
+		<%end %>
+	<% end %>
+<% end %>
+
+</td>
+<td>
+<% if s.applying? %>
+	<% s.submissions.each do |app| %>
+		<% if app.status.id == 2 %>
+			<%= link_to app.school.name, :controller =>"schools", :action => "show", :id => app.school.id %><br/>
+		<%end %>
+	<% end %>
+<% end %>
+</td>
+<td>
+<% if s.applying? %>
+	<% s.submissions.each do |app| %>
+		<% if app.status.id == 5 %>
+			<%= link_to app.school.name, :controller =>"schools", :action => "show", :id => app.school.id %><br/>
+		<%end %>
+	<% end %>
+<% end %>
+
+</td>
+<td>
+<% if s.applying? %>
+	<% s.submissions.each do |app| %>
+		<% if app.status.id == 7 %>
+			<%= link_to app.school.name, :controller =>"schools", :action => "show", :id => app.school.id %><br/>
+		<%end %>
+	<% end %>
+<% end %>
+
+</td>
+<td>
+<% if s.applying? %>
+	<% s.submissions.each do |app| %>
+		<% if app.status.id == 3 %>
+			<%= link_to app.school.name, :controller =>"schools", :action => "show", :id => app.school.id %><br/>
+		<%end %>
+	<% end %>
+<% end %>
+
+</td>
+<td>
+<% if s.applying? %>
+	<% s.submissions.each do |app| %>
+		<% if app.status.id == 4 %>
+			<%= link_to app.school.name, :controller =>"schools", :action => "show", :id => app.school.id %><br/>
+		<%end %>
+	<% end %>
+<% end %>
+
+</td>
+</tr>
+<% end %>
+</tbody>
+</table>
+<% end %>
+				</div>
+			</div>
+			<!-- / Last activity -->
+		</section>
+|
+<%= link_to 'Back', forms_path %>

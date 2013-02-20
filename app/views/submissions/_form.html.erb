@@ -1,0 +1,18 @@
+<%= simple_form_for(@submission) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.label :student_id %><br />
+    <%= f.collection_select(:student_id, Student.order("name ASC").all, :id, :name) %>
+    <%= f.label :school_id %><br />
+    <%= f.collection_select(:school_id, School.order("name ASC").all, :id, :name) %>
+    <%= f.label :status_id %><br />
+    <%= f.collection_select(:status_id, Status.order("name ASC").all, :id, :name) %>
+   
+    <%= f.input :notes %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

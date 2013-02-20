@@ -1,0 +1,50 @@
+	<!-- Left navigation panel
+		================================================== -->
+	<nav id="left-panel">
+		<div id="left-panel-content">
+			<ul>
+				<li>
+					<%= link_to(:controller=>"home", :action=>"index") do %>
+					<span class="icon-dashboard"></span>Dashboard
+					<% end %>
+				</li>
+				<li>
+					<%= link_to(:controller=>"students", :action=>"index") do %>
+					<span class="icon-group"></span>Children
+					<% end %>
+				</li>
+				<li>
+					<%= link_to(:controller=>"forms", :action=>"index") do %>
+					<span class="icon-font"></span>Forms
+					<% end %>
+
+				</li>
+				<li>
+					<%= link_to(:controller=>"submissions", :action=>"index") do %>
+					<span class="icon-inbox"></span>Applications
+					<% end %>
+
+				</li>
+				<li>
+					<%= link_to(:controller=>"schools", :action=>"index") do %>
+					<span class="icon-home"></span>Schools
+					<% end %>
+				</li>
+			
+				<li>
+					<%= link_to(:controller=>"home", :action=>"data") do %>
+					<span class="icon-bar-chart"></span>Data
+					<% end %>
+				</li>
+				<li>
+				<%= link_to(:controller=>"home", :action=>"about") do %>
+					<span class="icon-wrench"></span>About
+				<% end %>
+				</li>
+				
+			</ul>
+		</div>
+		<div class="icon-caret-down"></div>
+		<div class="icon-caret-up"></div>
+	</nav>
+	<!-- / Left navigation panel -->

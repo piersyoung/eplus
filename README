@@ -1,4 +1,25 @@
-RECIPES
-["controllers", "core", "email", "extras", "frontend", "gems", "git", "init", "models", "prelaunch", "railsapps", "readme", "routes", "saas", "setup", "testing", "views"]
-PREFERENCES
-{:fixtures=>"factory_girl", :local_env_file=>true, :starter_app=>"admin_app", :email=>"gmail", :dev_webserver=>"webrick", :frontend=>"bootstrap", :better_errors=>true, :form_builder=>"simple_form", :database=>"sqlite", :bootstrap=>"sass", :railsapps=>"rails3-bootstrap-devise-cancan", :authentication=>"devise", :templates=>"erb", :unit_test=>"rspec", :devise_modules=>"default", :git=>true, :integration=>"cucumber", :quiet_assets=>true, :authorization=>"cancan"}
+Rails3 + Twitter Bootstrap + Devise + CanCan
+============================================
+
+You can use this project as a starting point for a Rails web application. It requires Rails 3 and uses Devise for user management and authentication, CanCan for authorization of administrator access, and Twitter Bootstrap for CSS styling.
+
+Devise
+http://github.com/plataformatec/devise
+
+CanCan
+https://github.com/ryanb/cancan
+
+Twitter Bootstrap
+http://twitter.github.com/bootstrap/
+
+________________________
+
+For more information, please see the updated README file on GitHub:
+
+https://github.com/railsapps/rails3-bootstrap-devise-cancan
+
+________________________
+
+MIT License
+
+http://www.opensource.org/licenses/mit-license

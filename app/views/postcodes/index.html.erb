@@ -1,0 +1,27 @@
+<h1>Listing postcodes</h1>
+
+<table>
+  <tr>
+    <th>Code</th>
+    <th>Lat</th>
+    <th>Long</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @postcodes.each do |postcode| %>
+  <tr>
+    <td><%= postcode.code %></td>
+    <td><%= postcode.lat %></td>
+    <td><%= postcode.long %></td>
+    <td><%= link_to 'Show', postcode %></td>
+    <td><%= link_to 'Edit', edit_postcode_path(postcode) %></td>
+    <td><%= link_to 'Destroy', postcode, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Postcode', new_postcode_path %>

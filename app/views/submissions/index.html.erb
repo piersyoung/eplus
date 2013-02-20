@@ -1,0 +1,36 @@
+
+<h2>Applications</h2>
+
+	<!--=============================================================-->
+<section class="row-fluid">
+			
+	<div class="span12">
+		<h3 class="box-header">
+		<i class="icon-lightbulb"></i>
+		<%= link_to 'New Application', new_submission_path %>
+		</h3>
+		<div class="box">
+			<table class="table table-striped table-bordered" id="sortable">
+  <thead>
+    <th>Pupil</th>
+    <th>School</th>
+    <th>Status</th>
+    <th>Notes</th>
+    <th>[Show|Edit|Destroy]</th>
+  </thead>
+
+<% @submissions.each do |submission| %>
+  <tr>
+    <td><%= link_to submission.student.name, :controller=>"students", :action =>"show", :id=>submission.student.id %></td>
+    <td><%= link_to submission.school.name, :controller=>"schools", :action =>"show", :id=>submission.school.id %></td>
+    <td><span class="<%= sub_label(submission)%>"><%= submission.status.name %></span></td>
+    <td><%= submission.notes %></td>
+    <td><%= link_to submission do %> <i class="icon-eye-open"></i> Show   <%end%>&nbsp;&nbsp;&nbsp;<%= link_to edit_submission_path(submission) do %><i class="icon-pencil"></i> Edit <% end %>&nbsp;&nbsp;&nbsp;<% if current_user.has_role? :admin %><%= link_to 'Destroy', submission, method: :delete, data: { confirm: 'Are you sure?' } %><%end%></td>
+  </tr>
+<% end %>
+</table>
+		</div>
+	</div>
+
+</section>
+

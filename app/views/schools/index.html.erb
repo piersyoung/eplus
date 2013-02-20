@@ -1,0 +1,39 @@
+<h2>All Schools</h2>
+	<!--=============================================================-->
+		<section class="row-fluid">
+			
+			<!-- School latest
+				================================================== -->
+			<!-- Last activity
+				================================================== -->
+			<div class="span12">
+				<h3 class="box-header">
+					<i class="icon-time"></i>
+					<%= link_to 'New School', new_school_path %>
+				</h3>
+				<div class="box">
+				<% if !(@schools.empty? || @schools.nil?) %>
+<table class="table table-striped" id="sortable">
+<thead>
+<th>Name</th>
+<th>Boarding</th>
+<th>Boys/Girls/Mixed</th>
+<th>Location</th>
+<th>Ave NFER</th>
+</thead>
+<tbody>
+<% @schools.each do |s| %>
+<tr>
+<td><%= link_to s.name, :controller=>"schools", :action=> "show", :id=> s.id %></td>
+<td><%= s.dayboard.name %></td>
+<td><%= s.gender.name %></td>
+<td><%= s.county.name %></td>
+<td><%= s.average_nfer %></td>
+</tr>
+<% end %>
+</tbody>
+<% end %>
+				</div>
+			</div>
+			<!-- / Last activity -->
+		</section>

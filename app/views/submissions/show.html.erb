@@ -1,0 +1,36 @@
+<h2>Applications</h2>
+
+	<!--=============================================================-->
+<section class="row-fluid">
+			
+	<div class="span12">
+		<h3 class="box-header">
+		<i class="icon-lightbulb"></i>
+		<%= link_to 'New Application', new_submission_path %> | <%= link_to 'Edit', edit_submission_path(@submission) %> 
+		</h3>
+		<div class="box">
+		<p>
+  <b>Pupil:</b>
+  <%= @submission.student.name %>
+</p>
+
+<p>
+  <b>School:</b>
+  <%= @submission.school.name %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @submission.status.name %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @submission.notes %>
+</p>
+
+		</div>
+	</div>
+
+</section>
+

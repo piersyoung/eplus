@@ -1,0 +1,127 @@
+<h2>Forms</h2>
+	<!--=============================================================-->
+		<section class="row-fluid">
+			
+			<!-- School latest
+				================================================== -->
+			<div class="span4">
+				<h1 class="box-header">
+					<i class="icon-bullhorn"></i>
+					Year 3
+				</h1>
+				<div class="box">
+				<table class="table table-condensed">
+
+				<% @year3.each do |y| %>
+				
+				<tr><td><%= link_to y.name, :controller=>"forms", :action=>"show", :id=>y.id %></td><td><%= y.user.name %></td></tr>
+				
+				<% end %>
+				</table>
+				</div>
+				
+			</div>
+			
+			<div class="span4">
+				<h1 class="box-header">
+					<i class="icon-bullhorn"></i>
+					Year 4
+				</h1>
+				<div class="box">
+				<table class="table table-condensed">
+				<% @year4.each do |y| %>
+				
+				<tr><td><%= link_to y.name, :controller=>"forms", :action=>"show", :id=>y.id %></td><td><%= y.user.name %></td></tr>
+				
+				<% end %>
+
+				</table>
+				</div>
+				
+			</div>
+			
+			<div class="span4">
+				<h1 class="box-header">
+					<i class="icon-bullhorn"></i>
+					Year 5
+				</h1>
+				<div class="box">
+				<table class="table table-condensed">
+				<% @year5.each do |y| %>
+				
+				<tr><td><%= link_to y.name, :controller=>"forms", :action=>"show", :id=>y.id %></td><td><%= y.user.name %></td></tr>
+				
+				<% end %>
+
+				</table></div>
+				
+			</div>
+			
+			
+			<!-- / School Latest -->
+		</section>
+
+	<!--=============================================================-->
+		<section class="row-fluid">
+			
+			<!-- School latest
+				================================================== -->
+			<div class="span4">
+				<h1 class="box-header">
+					<i class="icon-bullhorn"></i>
+					Year 6
+				</h1>
+				<div class="box">
+				<table class="table table-condensed">
+				<% @year6.each do |y| %>
+				
+				<tr><td><%= link_to y.name, :controller=>"forms", :action=>"show", :id=>y.id %></td><td><%= y.user.name %></td></tr>
+				
+				<% end %>
+
+				</table>
+				</div>
+				
+			</div>
+			
+			<div class="span4">
+				<h1 class="box-header">
+					<i class="icon-bullhorn"></i>
+					Year 7
+				</h1>
+				<div class="box">
+				<table class="table table-condensed">
+				<% @year7.each do |y| %>
+				
+				<tr><td><%= link_to y.name, :controller=>"forms", :action=>"show", :id=>y.id %></td><td><%= y.user.name %></td></tr>
+				
+				<% end %>
+
+				</table>
+				</div>
+				
+			</div>
+			
+			<div class="span4">
+				<h1 class="box-header">
+					<i class="icon-bullhorn"></i>
+					Year 8
+				</h1>
+				<div class="box">
+				<table class="table table-condensed">
+				<% @year8.each do |y| %>
+				
+				<tr><td><%= link_to y.name, :controller=>"forms", :action=>"show", :id=>y.id %></td><td><%= y.user.name %></td></tr>
+				
+				<% end %>
+
+				</table>
+				</div>
+				
+			</div>
+			
+			
+			<!-- / School Latest -->
+		</section>
+
+<%= link_to 'New Form', new_form_path %>

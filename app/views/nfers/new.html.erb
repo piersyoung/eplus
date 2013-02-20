@@ -1,0 +1,16 @@
+<h1>New nfer</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', nfers_path %>
+
+<div style="clear:both;">
+<br><br>
+<h3>Bulk Add</h3>
+<i>CSV file should be e.g </i>"Subject, Raw, Stand, StudentRef, date_taken"
+<br>
+<%= form_tag import_nfers_url, :multipart => true do %>
+<%= file_field_tag "file" %>
+<%= submit_tag "Upload and do your worst ..."%>
+<% end %>
+</div>

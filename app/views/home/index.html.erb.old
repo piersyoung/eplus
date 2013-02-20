@@ -1,0 +1,327 @@
+<!-- Server statistics
+			================================================== -->
+		<section class="well row-fluid " id="easy-pie-charts">
+			<h3 class="box-header">
+				Applications tracker
+			</h3>
+			<div class="box no-border non-collapsible">
+				
+				<div class="span2">
+					<div id="easy-pie-chart-1" data-percent="58">
+						58/100
+					</div>
+					<div class="caption">
+						Applications Made
+					</div>
+				</div>
+				
+				<div class="span2">
+					<div id="easy-pie-chart-2" data-percent="43">
+						43%
+					</div>
+					<div class="caption">
+						Info Received
+					</div>
+				</div>
+
+				<div class="span2">
+					<div id="easy-pie-chart-3" data-percent="91">
+						91%
+					</div>
+					<div class="caption">
+						References Sent
+					</div>
+				</div>
+
+				<div class="span2">
+					<div id="easy-pie-chart-4" data-percent="82">
+						752MB
+					</div>
+					<div class="caption">
+						Interviews
+					</div>
+				</div>
+
+				<div class="span2">
+					<div id="easy-pie-chart-5" data-percent="35">
+						35%
+					</div>
+					<div class="caption">
+						No Place
+					</div>
+				</div>
+
+				<div class="span2">
+					<div id="easy-pie-chart-6" data-percent="77">
+						1.5TB
+					</div>
+					<div class="caption">
+						Places found
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- / Server statistics -->
+
+<!-- ================================================== -->
+	<!--=============================================================-->
+		<section class="row-fluid">
+			
+			<!-- Support tickets
+				================================================== -->
+			<div class="span6">
+				<h3 class="box-header">
+					<i class="icon-bullhorn"></i>
+					Latest Updates
+				</h3>
+				<div class="box">
+				
+				<% @submissions.each do |submission| %>
+					<div class="support-ticket">
+					<%= link_to submission.student.name, :controller=>"students", :action =>"show", :id=>submission.student.id %>														<span class="label label-success"><%= link_to submission.status.name, :controller=>"statuses", :action =>"show", :id=>submission.status.id %></span>
+						<br>
+						<img src="assets/images/avatar.png" alt="6N">
+						<span class="opened-by">
+							School: 
+							<%= link_to submission.school.name, :controller=>"schools", :action =>"show", :id=>submission.school.id %>
+							<br>
+							<%= submission.updated_at.strftime("%d.%m.%y")%>
+						</span>
+					</div>
+				<% end %>
+
+				</div>
+			</div>
+			<!-- / Support tickets -->
+
+			<!-- Last activity
+				================================================== -->
+			<div class="span6">
+				<h3 class="box-header">
+					<i class="icon-time"></i>
+					Latest News
+				</h3>
+				<div class="box">
+					<div class="tabbable">
+					
+						<!-- Tabs
+							================================================== -->
+						<ul class="nav nav-tabs">
+						
+							<li class="active">
+								<a href="#tab-comments" data-toggle="tab"></a>
+							</li>
+							
+							<li>
+								<a href="#tab-threads" data-toggle="tab">Threads</a>
+							</li>
+							
+							<li>
+								<a href="#tab-users" data-toggle="tab">Users</a>
+							</li>
+						</ul>
+						<!-- / Tabs -->
+						
+						<!-- Tabs content
+							================================================== -->
+						<div class="tab-content">
+						
+							<!-- Recent comments tab content -->
+							<div class="tab-pane fade in active" id="tab-comments">
+							
+								<div class="comment">
+									<img src="assets/images/avatar.png" alt="">
+									<div class="content">
+										<span>
+											<a href="#">First User</a> commented 2 hours ago
+										</span>
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore magna aliqua.
+										<span class="actions">
+											<a href="#"><i class="icon-pencil"></i> Edit</a>
+											&nbsp;&nbsp;&nbsp;
+											<a href="javascript:void(0)" class="comment-remove"><i class="icon-trash"></i> Remove</a>
+										</span>
+									</div>
+								</div>
+								
+								<div class="comment">
+									<img src="assets/images/avatar.png" alt="">
+									<div class="content">
+										<span>
+											<a href="#">Second User</a> commented 2 hours ago
+										</span>
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore magna aliqua.
+										<span class="actions">
+										<a href="#"><i class="icon-pencil"></i> Edit</a>
+										&nbsp;&nbsp;&nbsp;
+										<a href="javascript:void(0)" class="comment-remove"><i class="icon-trash"></i> Remove</a>
+										</span>
+									</div>
+								</div>
+								
+								<div class="comment">
+									<img src="assets/images/avatar.png" alt="">
+									<div class="content">
+										<span>
+											<a href="#">Third User</a> commented 2 hours ago
+										</span>
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore magna aliqua.
+										<span class="actions">
+											<a href="#"><i class="icon-pencil"></i> Edit</a>
+											&nbsp;&nbsp;&nbsp;
+											<a href="javascript:void(0)" class="comment-remove"><i class="icon-trash"></i> Remove</a>
+										</span>
+									</div>
+								</div>
+								
+								<div class="comment">
+									<img src="assets/images/avatar.png" alt="">
+									<div class="content">
+										<span>
+											<a href="#">Fourth User</a> commented 2 hours ago
+										</span>
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore magna aliqua.
+										<span class="actions">
+											<a href="#"><i class="icon-pencil"></i> Edit</a>
+											&nbsp;&nbsp;&nbsp;
+											<a href="javascript:void(0)" class="comment-remove"><i class="icon-trash"></i> Remove</a>
+										</span>
+									</div>
+								</div>
+								
+								<div class="comment">
+									<img src="assets/images/avatar.png" alt="">
+									<div class="content">
+										<span>
+											<a href="#">Fifth User</a> commented 2 hours ago
+										</span>
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore magna aliqua.
+										<span class="actions">
+											<a href="#"><i class="icon-pencil"></i> Edit</a>
+											&nbsp;&nbsp;&nbsp;
+											<a href="javascript:void(0)" class="comment-remove"><i class="icon-trash"></i> Remove</a>
+										</span>
+									</div>
+								</div>
+							</div>
+							<!-- / Recent comments tab content-->
+							
+							<!-- Recent threads tab content -->
+							<div class="tab-pane fade" id="tab-threads">
+							
+								<div class="thread">
+									<img src="assets/images/avatar.png" alt="">
+									<div class="content">
+										<a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a>
+										<span>
+											asked by
+											<a href="#">First User</a>
+											<i class="icon-circle"></i>
+											14 hours ago
+										</span>
+									</div>
+								</div>
+								
+								<div class="thread">
+									<img src="assets/images/avatar.png" alt="">
+									<div class="content">
+										<a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a>
+										<span>
+											asked by
+											<a href="#">Second User</a>
+											<i class="icon-circle"></i>
+											14 hours ago
+										</span>
+									</div>
+								</div>
+								
+								<div class="thread">
+									<img src="assets/images/avatar.png" alt="">
+									<div class="content">
+										<a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a>
+										<span>
+											asked by
+											<a href="#">Third User</a>
+											<i class="icon-circle"></i>
+											14 hours ago
+										</span>
+									</div>
+								</div>
+								
+								<div class="thread">
+									<img src="assets/images/avatar.png" alt="">
+									<div class="content">
+										<a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a>
+										<span>
+											asked by
+											<a href="#">Fourth User</a>
+											<i class="icon-circle"></i>
+											14 hours ago
+										</span>
+									</div>
+								</div>
+								
+								<div class="thread">
+									<img src="assets/images/avatar.png" alt="">
+									<div class="content">
+										<a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a>
+										<span>
+											asked by
+											<a href="#">Fifth User</a>
+											<i class="icon-circle"></i>
+											14 hours ago
+										</span>
+									</div>
+								</div>
+							</div>
+							<!-- / Recent threads tab content -->
+							
+							<!-- Recent users tab content -->
+							<div class="tab-pane fade" id="tab-users">
+								<a href="#" title="First User">
+									<img src="assets/images/avatar.png" alt="">
+								</a>
+								<a href="#" title="Second User">
+									<img src="assets/images/avatar.png" alt="">
+								</a>
+								<a href="#" title="Third User">
+									<img src="assets/images/avatar.png" alt="">
+								</a>
+								<a href="#" title="Fourth User">
+									<img src="assets/images/avatar.png" alt="">
+								</a>
+								<a href="#" title="Fifth User">
+									<img src="assets/images/avatar.png" alt="">
+								</a>
+								<a href="#" title="Sixth User">
+									<img src="assets/images/avatar.png" alt="">
+								</a>
+								<a href="#" title="Seventh User">
+									<img src="assets/images/avatar.png" alt="">
+								</a>
+								<a href="#" title="Eighth User">
+									<img src="assets/images/avatar.png" alt="">
+								</a>
+								<a href="#" title="Ninth User">
+									<img src="assets/images/avatar.png" alt="">
+								</a>
+							</div>
+							<!-- / Recent users tab content -->
+						</div>
+						<!-- / Tabs content -->
+					</div>
+					<!-- / .tabbable -->
+				</div>
+			</div>
+			<!-- / Last activity -->
+		</section>
+		
+
+
+<%= link_to 'New Submission', new_submission_path %>
+

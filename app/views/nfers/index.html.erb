@@ -1,0 +1,34 @@
+<h1>Listing nfers</h1>
+
+
+<table>
+  <tr>
+    <th>Subject</th>
+    <th>Raw</th>
+    <th>Ss</th>
+    <th>Student</th>
+    <th>Schoolreference</th>
+    <th>Date Taken</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @nfers.each do |nfer| %>
+  <tr>
+    <td><%= nfer.subject %></td>
+    <td><%= nfer.raw %></td>
+    <td><%= nfer.ss %></td>
+    <td><%= nfer.student_id %></td>
+    <td><%= nfer.schoolreference %></td>
+    <td><%= nfer.date_taken %></td>
+    <td><%= link_to 'Show', nfer %></td>
+    <td><%= link_to 'Edit', edit_nfer_path(nfer) %></td>
+    <td><%= link_to 'Destroy', nfer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Nfer', new_nfer_path %>

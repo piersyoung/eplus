@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
+<html>
+  <head>
+	<meta name="viewport" content="width=device-width">
+	    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title><%= content_for?(:title) ? yield(:title) : "Schoolstrack" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Rails3 Bootstrap Devise Cancan" %>">
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700" rel="stylesheet" type="text/css">
+    <%= stylesheet_link_tag "application", :media => "all" %>
+
+
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= yield(:head) %>
+  </head>
+  <body>
+     <%= render 'layouts/navtop' %>  
+     <%= render 'layouts/navside' %>  
+
+	<section class="container">
+	    <%= render 'layouts/messages' %>
+        <%= yield %>
+        <!-- Page footer
+		================================================== -->
+		<footer id="main-footer">
+			Copyright © 2013 <a href="#">Piers Young</a>, all rights reserved.
+			<a href="#" class="pull-right" id="on-top-link">
+				On Top&nbsp;<i class=" icon-chevron-up"></i>
+			</a>
+		</footer>
+		<!-- / Page footer -->
+	</section>
+        
+  </body>
+</html>

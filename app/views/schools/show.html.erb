@@ -1,0 +1,132 @@
+
+<h2><%= @school.name %></h2>
+	<!--=============================================================-->
+		<section class="row-fluid">
+			
+			<!-- School latest
+				================================================== -->
+			<div class="span6">
+				<h1 class="box-header">
+					<i class="icon-bullhorn"></i>
+					Applications and Results
+				</h1>
+				<div class="box">
+				<table class="table table-hover">
+				<thead>
+				<th>Date</th>
+				<th>Name</th>
+				<th>Status</th>
+				<th>NFER Av</th>
+				</thead>
+				<tbody>
+				<% @subs.each do |s| %>
+				<tr>
+				<td><%= s.updated_at.strftime("%d.%m.%y") %></td>
+				 <td><%= link_to s.student.name, :controller=>"students", :action =>"show", :id=>s.student.id %></td>
+			    <td><span class="<%= sub_label(s)%>"><%= s.status.name %></span></td>	
+				<td><%= s.student.nfer_latest_ss_average %></td>
+				</tr>
+				<% end %>
+				</tbody>
+				</table>
+			
+				</div>
+				
+			</div>
+			<!-- / School Latest -->
+
+			<!-- Details
+				================================================== -->
+			<div class="span3">
+				<h3 class="box-header">
+					<i class="icon-folder-open-alt"></i>
+					Details [<%= link_to 'Edit', edit_school_path(@school) %> ]
+				</h3>
+				<div class="box">
+					<table class="table table-condensed">
+					<tr><td>Ages</td><td><%= @school.agefrom %> to <%= @school.ageto %> </td></tr>
+					<tr><td>Size</td><td><%= @school.size %></td></tr>
+					<tr><td>Gender</td><td><%= @school.gender.name %></td></tr>
+					<tr><td>Day/Board</td><td><%= @school.dayboard.name %></td></tr>
+					<tr><td>Private/State</td><td><%= @school.status %> </td></tr>
+					<tr><td>Religion</td><td><%= @school.religion.name %> </td></tr>
+					
+
+					</table>
+					
+					<u>Notes</u>
+					<p>
+					[notes to go here.  Looking to make these all editable by staff to get a sort of wiki functionality]</p>
+					
+				</div>
+			</div>
+			<div class="span3">
+				<h3 class="box-header">
+					<i class="icon-globe"></i>
+					Contact [<%= link_to 'Edit', edit_school_path(@school) %> ]
+				</h3>
+				<div class="box">
+					<table class="table table-condensed">
+					<tr><td>Address</td><td><%= @school.address %>, <br><%= @school.town %>,<br> <%= @school.county.name %>,<br> <%= @school.postcode %></td></tr>
+					<tr><td>Tel</td><td><%= @school.phone %></td></tr>
+
+    			<tr>
+    				<td>Fax</td><td><%= @school.fax %></td>
+    			</tr>
+    			<tr>
+    				<td>Web</td><td><%= link_to "Click here", @school.web %></td>
+    			</tr>
+
+					</table>
+					 
+
+				
+
+    		        	<p><a href="<%= @maplink %>"><img border=0 src="<%= @mapurl %>"></a></p>
+				</div>
+			</div>
+
+		</section>
+
+
+
+
+
+<section class="row-fluid " id="easy-pie-charts">
+	<div class="span6">
+		<h3 class="box-header">
+			<i class="icon-tasks"></i>Data
+		</h3>
+		<div class="box" style="padding-top:20px;">
+			<div class="span6">
+				<div id="easy-pie-chart-1" data-percent="<%= @school.success_rate[3].to_s%>">
+						<%= @school.success_rate[3].round(2).to_s%>% not accepted
+				</div>
+			</div>
+		
+			<div class="span6">
+				<div id="easy-pie-chart-2" data-percent="<%= @school.success_rate[3].to_s%>">
+					<%= @school.success_rate[4].round(2).to_s%>% offers accepted
+				</div>
+<br/>
+			</div>
+		
+		</div>
+	</div>	
+	<div class="span6">
+
+		<h3 class="box-header">
+			<i class="icon-bar-chart"></i>Benchmark NFERs
+		</h3>
+		<div class="box">
+			<div id="visits-chart"></div>
+			<br/>
+		</div>
+
+	</div>	
+				
+		</section>
+<!--- end data -- >
+				
+					
+			

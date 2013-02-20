@@ -1,0 +1,47 @@
+<h2>All Students</h2>
+	<!--=============================================================-->
+		<section class="row-fluid">
+			
+			<!-- School latest
+				================================================== -->
+			<!-- Last activity
+				================================================== -->
+			<div class="span12">
+				<h3 class="box-header">
+					<i class="icon-time"></i>
+					<%= link_to 'New Student', new_student_path %>
+				</h3>
+				<div class="box">
+				<% if !(@students.nil? || @students.empty?) %>
+<table class="table table-striped" id="sortable">
+<thead>
+<th>Name</th>
+<th>Reference</th>
+<th>Form</th>
+<th>Form Tutor</th>
+<th>Applications</th>
+</thead>
+<tbody>
+<% @students.each do |s| %>
+<tr>
+<td><%= link_to s.name, :controller=>"students", :action=> "show", :id=> s.id %></td>
+<td><%= s.schoolreference %></td>
+<td><%= link_to s.form.name, :controller=>"forms", :action=> "show", :id=> s.form.id  %></td>
+<td><%= link_to s.form.user.name, :controller=>"users", :action=> "show", :id=> s.form.user.id  %></td>
+<td>
+<% if !(s.submissions.nil? || s.submissions.empty?) %>
+<% s.submissions.each do |app| %>
+<% link_to app.school.name, :controller=>"schools", :action=>"show", :id=>app.school.id %>
+<% end %>
+<% end %>
+</td>
+</tr>
+<% end %>
+</tbody>
+</table>
+<% end %>
+
+				</div>
+			</div>
+			<!-- / Last activity -->
+		</section>
