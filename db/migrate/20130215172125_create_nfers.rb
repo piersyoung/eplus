@@ -6,7 +6,8 @@ class CreateNfers < ActiveRecord::Migration
       t.float :ss
       t.string :student_id
       t.string :schoolreference
-
+	  t.datetime :date_taken
+	  
       t.timestamps
     end
   end
